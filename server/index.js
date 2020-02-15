@@ -5,6 +5,9 @@ const hostname = '127.0.0.1';
 const port = 3030;
 
 var app = express();
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
 
 var server = http.createServer(app);
 server.listen(port, hostname, () => {
