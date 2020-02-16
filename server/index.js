@@ -29,10 +29,10 @@ io.on('connection', function (socket) {
     socket.emit('get nicknames', getNicknameUsers());
 
   });
-  socket.on('send message', function ({ message }) {
+  socket.on('send message', function ({ message, time }) {
     const user = getUser(socket.id)
   
-    socket.broadcast.emit('message', { nickname: user.nickname, message });
+    socket.broadcast.emit('message', { nickname: user.nickname, message, time });
 
     
 

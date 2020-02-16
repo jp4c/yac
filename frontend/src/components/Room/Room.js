@@ -37,8 +37,17 @@ export class Room extends Component {
                     <button
                         className="sendButton"
                         onClick={e => {
-                            this.socket.emit('send message', { message: this.props.message });
-                            const message = { nickname: this.props.nickname_local, message: this.props.message }
+
+
+
+                            var today = new Date();
+                            var min = today.getMinutes();
+                            if (min <= 9) {
+                                min = "0" + min
+                            }
+                            var time = today.getHours() + ":" + min + ":" + today.getSeconds();
+                            this.socket.emit('send message', { message: this.props.message, time });
+                            const message = { nickname: this.props.nickname_local, message: this.props.message, time }
                             this.props.setMessages(message)
                             this.props.setMessage('')
                         }}>
@@ -52,7 +61,7 @@ export class Room extends Component {
     }
 }
 const mapStateToProps = (state) => {
-   
+
     return {
         message: state.message.message,
         messageHistory: state.message.messageHistory,

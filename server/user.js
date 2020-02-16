@@ -1,7 +1,7 @@
 const users = [];
 
 const addUser = ({ id, nickname }) => {
-    nickname = nickname.trim().toLowerCase();
+    nickname = nickname.trim()
 
     const user = { id, nickname };
 

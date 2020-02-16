@@ -13,8 +13,19 @@
     float: left;
     font-size: 1.1em;
     word-wrap: break-word;
+ 
   }
-  
+  .timeText{
+   
+    margin: 0;
+    text-align: end;
+    font-size: small;
+  }
+  .messageAndTimeContainer{
+    display: block;
+    margin:0;
+   
+  }
   .messageText img {
     vertical-align: middle;
   }
@@ -24,6 +35,7 @@
     justify-content: flex-end;
     padding: 0 5%;
     margin-top: 3px;
+  
   }
   
   .sentText {
@@ -32,10 +44,6 @@
     font-family: Helvetica;
     color: #828282;
     letter-spacing: 0.3px;
-  }
-  
-  .pl-10 {
-    padding-left: 10px;
   }
   
   .pr-10 {
@@ -64,4 +72,8 @@
   
   .backgroundLight {
     background: #F3F3F3;
+  }
+  .messages {
+    height: 50vh;
+    
   }
