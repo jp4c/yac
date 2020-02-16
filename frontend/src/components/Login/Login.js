@@ -1,25 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, Component } from 'react';
 import { Link } from "react-router-dom";
-
+import { connect } from 'react-redux'
 import './Login.css'
 
-export default function Login() {
-    const [nickname, setNickname] = useState('');
+function onClickLogin(e, nickname) {
+    if (!nickname)
+        e.preventDefault()
 
 
-    return (
-        <div className="Container">
-            <div className="loginContainer">
-                <h1>Login</h1>
-                <div >
-                    <input placeholder="Nickname"  className="loginInput"  type="text" onChange={(event) => setNickname(event.target.value)} />
-                </div>
-                <Link to="/Chat">
-                    <button className="LoginButton" type="button">
-                        Sign in!
-                    </button>
-                </Link>
-            </div>
-        </div>
-    );
 }
+
+
+class Login extends Component {
+
+
+    render() {
+        return (
+            <div className="Container">
+                <div className="loginContainer">
+                    <h1>Login</h1>
+                    <div >
+                        <input placeholder="Nickname" className="loginInput" type="text" onChange={(event) => this.props.addNickname(event.target.value)} />
+                    </div>
+                    <Link onClick={e => { onClickLogin(e, this.props.nickname) }} to="/Chat">
+                        <button className="LoginButton" type="button"
+                        >
+                            Sign in!
+                    </button>
+                    </Link>
+                </div>
+            </div>
+        );
+    }
+}
+const mapStateToProps = (state) => {
+    console.log(state)
+    return {
+        nickname: state.nickname
+
+
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addNickname: (nickname) => dispatch({ type: 'add_nickname', nickname }),
+
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

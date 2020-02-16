@@ -12,20 +12,24 @@ export default function Room() {
         <div>
             <h1>Room</h1>
             <div className="messagesContainer">
-                <Messages messages={messages}  />
+                <Messages messages={messages} />
             </div>
             <div className="inputContainer">
                 <input
                     placeholder="Type a message"
                     className="inputMessage"
+                    value={message}
                     type="text"
                     onChange={(event) => setMessage(event.target.value)} />
 
                 <button
                     className="sendButton"
-                    onClick={e =>   setMessages([...messages, message ])}>
+                    onClick={e => {
+                        setMessages([...messages, message])
+                        setMessage('')
+                    }}>
                     Send
-                    </button>
+                </button>
 
             </div>
 
