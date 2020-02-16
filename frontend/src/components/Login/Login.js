@@ -15,7 +15,7 @@ export default function Login() {
                     <input placeholder="Nickname"  className="loginInput"  type="text" onChange={(event) => setNickname(event.target.value)} />
                 </div>
                 <Link to="/Chat">
-                    <button className="button" type="button">
+                    <button className="LoginButton" type="button">
                         Sign in!
                     </button>
                 </Link>

@@ -1,0 +1,37 @@
+
+
+  .chatContainer {
+    width: 50%;
+  
+  }
+  .inputMessage {
+    border-radius: 0;
+    padding: 15px 20px;
+    width: 85%;
+    font-size: medium;
+  }
+
+  .sendButton {
+    color: #fff !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #2979FF;
+    padding: 20px;
+    display: inline-block;
+    border: none;
+    width: 15%;
+    
+    
+}
+.messagesContainer{
+
+    border-width: 1;
+    border-style: solid;
+    border-color : lightgray;
+    height: 50vh;;
+}
+.inputContainer{
+    margin-top: 20px;
+    display: flex;
+
+}
