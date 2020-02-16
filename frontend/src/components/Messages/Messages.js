@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import Message from './Message';
-const Messages = ({ messages }) => (
-    <div>
-        {messages.map((message, i) => <div key={i}><Message message={message}  /></div>)}
-    </div>
-);
+export default class Messages extends Component {
 
-export default Messages;
+    render() {
+        return (
+            
+        <div>
+            {this.props.messages.map((message, i) => <div key={i}><Message message={message} nickname_local={this.props.nickname_local} /></div>)}
+        </div>
+        
+        )
+    } 
+}

@@ -2,20 +2,21 @@ import React from 'react';
 
 import './Message.css'
 
-const Message = ({ message}) => {
+const Message = ( {message: { nickname, message }, nickname_local}) => {
     let isSentByCurrentUser = false;
-/*
-    const trimmedName = name.trim().toLowerCase();
+    
 
-    if (user === trimmedName) {
+    const trimmedName = nickname.trim().toLowerCase();
+
+    if (nickname_local.trim().toLowerCase() === trimmedName) {
         isSentByCurrentUser = true;
     }
-*/
+
     return (
         isSentByCurrentUser
             ? (
                 <div className="messageContainer justifyEnd">
-                    <p className="sentText pr-10">cualquiera</p>
+                    <p className="sentText pr-10">{nickname_local}</p>
                     <div className="messageBox backgroundBlue">
                         <p className="messageText colorWhite">{message}</p>
                     </div>
@@ -26,7 +27,7 @@ const Message = ({ message}) => {
                     <div className="messageBox backgroundLight">
                         <p className="messageText colorDark">{message}</p>
                     </div>
-                    
+                    <p className="sentText pl-10 ">{nickname}</p>
                 </div>
             )
     );
