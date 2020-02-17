@@ -5,7 +5,7 @@ const { addUser, removeUser, getUser, getNicknameUsers,getUsers } = require('./u
 const cors = require('cors');
 
 
-const port = 3030;
+const port = process.env.PORT ||3030;
 
 var app = express();
 var server = http.createServer(app);
@@ -26,7 +26,7 @@ io.on('connection', function (socket) {
   socket.on('add nickname', function ({ nickname }) {
     
     addUser({ id: socket.id, nickname });
-    socket.emit('get nicknames', getNicknameUsers());
+    socket.broadcast.emit('get nicknames', getNicknameUsers());
 
   });
   socket.on('send message', function ({ message, time }) {

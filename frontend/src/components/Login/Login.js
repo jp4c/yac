@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import './Login.css'
 import io from 'socket.io-client';
 
-const ENDPOINT = 'http://localhost:3030';
+const ENDPOINT = 'https://chat-meltstudio-server.herokuapp.com';
 
 
 class Login extends Component {

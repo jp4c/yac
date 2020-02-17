@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 import Messages from '../Messages/Messages';
 import io from 'socket.io-client';
 import './Room.css'
-const ENDPOINT = 'http://localhost:3030';
+const ENDPOINT = 'https://chat-meltstudio-server.herokuapp.com';
+
 export class Room extends Component {
 
 
