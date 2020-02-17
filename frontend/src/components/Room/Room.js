@@ -23,7 +23,9 @@ export class Room extends Component {
     render() {
         return (
             <div>
-                <h1>Room</h1>
+                <h1>Chat</h1>
+                <h2>Nickname: {this.props.nickname_local}</h2>
+
                 <div className="messagesContainer">
                     <Messages messages={this.props.messageHistory} nickname_local={this.props.nickname_local} />
                 </div>
@@ -39,14 +41,12 @@ export class Room extends Component {
                         className="sendButton"
                         onClick={e => {
 
-
-
                             var today = new Date();
                             var min = today.getMinutes();
                             if (min <= 9) {
                                 min = "0" + min
                             }
-                            var time = today.getHours() + ":" + min + ":" + today.getSeconds();
+                            var time = today.getHours() + ":" + min;
                             this.socket.emit('send message', { message: this.props.message, time });
                             const message = { nickname: this.props.nickname_local, message: this.props.message, time }
                             this.props.setMessages(message)
